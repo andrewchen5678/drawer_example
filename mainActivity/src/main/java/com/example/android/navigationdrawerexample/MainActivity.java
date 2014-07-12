@@ -98,6 +98,7 @@ public class MainActivity extends ActionBarActivity {
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.yamaha_current_offer);
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
@@ -183,6 +184,12 @@ public class MainActivity extends ActionBarActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        if(position==mPlanetTitles.length-1){
+            getSupportActionBar().setIcon(R.drawable.yamaha_phone_logo);
+        }else{
+            getSupportActionBar().setIcon(R.drawable.yamaha_current_offer);
+        }
 
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
